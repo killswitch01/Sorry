@@ -3,15 +3,19 @@ body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  overflow: hidden;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .container {
   text-align: center;
   color: #fff;
+  z-index: 2;
+  position: relative;
 }
 
 h1 {
@@ -26,16 +30,39 @@ h1 {
   background: #fff3f3;
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .heart {
-  width: 40px;
-  height: 40px;
-  background: url('https://i.imgur.com/oZf2jYy.png') no-repeat center;
-  background-size: cover;
+  width: 30px;
+  height: 30px;
+  background-color: red;
   position: absolute;
-  cursor: pointer;
+  top: 0;
+  left: 0;
+  transform: rotate(-45deg);
   animation: fall 5s linear infinite;
+  cursor: pointer;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart::before {
+  top: -15px;
+  left: 0;
+}
+
+.heart::after {
+  left: 15px;
+  top: 0;
 }
 
 @keyframes fall {
@@ -50,4 +77,80 @@ h1 {
 #message h2 {
   margin-top: 20px;
   font-size: 2rem;
+  font-family: 'Dancing Script', cursive;
+  color: #ff4b5c;
+}
+
+.apology-text {
+  margin: 20px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  font-family: 'Poppins', sans-serif;
+  color: #444;
+  background: #ffe6e6;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: left;
+}
+
+.signature {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff4b5c;
+}
+
+#restartBtn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #ff6b6b;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#restartBtn:hover {
+  background-color: #ff4757;
+}
+
+/* Background floating hearts */
+.background-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.background-hearts::before,
+.background-hearts::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(-45deg);
+  animation: backgroundFall 10s linear infinite;
+  border-radius: 0 50% 50% 50%;
+}
+
+.background-hearts::before {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.background-hearts::after {
+  left: 70%;
+  animation-delay: 5s;
+}
+
+@keyframes backgroundFall {
+  0% { top: -10%; opacity: 1; }
+  100% { top: 110%; opacity: 0; }
 }

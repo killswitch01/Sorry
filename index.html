@@ -7,17 +7,27 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5b3ab8bb40.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="background-hearts"></div>
+
   <div class="container">
     <h1>I'm Sorry, My Love!</h1>
     <p>Catch 5 hearts to unlock my apology!</p>
     <div id="gameArea"></div>
     <div id="message" class="hidden">
-      <h2>I'm Really Sorry...</h2>
-      <p>Baby, I never meant to hurt you.  
-         Please forgive me.  
-         You are the most precious thing in my life.  
-         I love you forever.</p>
-      <p>— Gurveer</p>
+      <h2>Hey Sweetheart,</h2>
+      <p class="apology-text">
+        I know you’re angry… but do you know what’s worse?<br><br>
+        Me sitting here missing you like crazy.<br><br>
+        Can we skip the angry part and go back to being us?<br><br>
+        I miss you way more than you can imagine ❤️
+      </p>
+      <p class="signature">— Gurveer</p>
+      <button id="restartBtn">Play Again</button>
     </div>
   </div>
 
